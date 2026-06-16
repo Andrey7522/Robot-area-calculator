@@ -1,0 +1,287 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+
+#-------------------------------------------------
+<MainWindow>:
+    name: 'main'
+    padding: 8
+    spacing: 8
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 3
+        Image:
+            source: 'C:/Users/andre/PycharmProjects/PythonProject10/RobotAreaCalculator/picture/pxArt.ico'
+            size_hint: (0.8, 0.8)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            stretch: True
+            keep_ratio: True
+
+    Label:
+        text: 'Hi this is Robot area calculator!'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+        markup: True
+        font_size: '15sp'
+        size_hint_y: 0.2
+
+    Button:
+        text: '>'
+        font_size: '24sp'
+        color: 0, 0, 0, 1
+        size_hint: (None, None)
+        width: 35
+        height: 35
+        background_normal: ''
+        pos_hint: {'right': 0.95, 'y': 0.04}
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+        on_press:
+            root.manager.current = 'second'
+            root.manager.transition.direction = 'right'
+
+#-------------------------------------------------
+<SecondWindow>:
+    name: 'second'
+    BoxLayout:
+        size: 180, 100
+        size_hint: None, None
+        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        orientation: 'vertical'
+        padding: 4
+        spacing: 10
+        canvas.after:
+            Color:
+                rgba: 0.86, 0.84, 0.82, 1
+            Line:
+                rectangle: self.x, self.y, self.width, self.height
+                width: 1
+
+        Label:
+            text: 'Right flight (mm)'
+            color: 1, 1, 1, 1
+        TextInput:
+            id: area
+            hint_text: '...'
+            height: 10
+            on_text: root.check_fields()
+
+    BoxLayout:
+        size: 180, 100
+        size_hint: None, None
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        padding: 4
+        spacing: 10
+        canvas.after:
+            Color:
+                rgba: 0.86, 0.84, 0.82, 1
+            Line:
+                rectangle: self.x, self.y, self.width, self.height
+                width: 1
+        Label:
+            text: 'Left flight (mm)'
+            color: 1, 1, 1, 1
+        TextInput:
+            id: robotsize
+            hint_text: '...'
+            height: 10
+            on_text: root.check_fields()
+
+    BoxLayout:
+        size: 180, 100
+        size_hint: None, None
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+        orientation: 'vertical'
+        padding: 4
+        spacing: 10
+        canvas.after:
+            Color:
+                rgba: 0.86, 0.84, 0.82, 1
+            Line:
+                rectangle: self.x, self.y, self.width, self.height
+                width: 1
+        Label:
+            text: 'Arm (mm)'
+            color: 1, 1, 1, 1
+        TextInput:
+            id: objects
+            hint_text: '...'
+            height: 10
+            on_text: root.check_fields()
+
+    Button:
+        text: '<'
+        font_size: '24sp'
+        color: 0, 0, 0, 1
+        size_hint: (None, None)
+        width: 35
+        height: 35
+        background_normal: ''
+        pos_hint: {'x': 0.05, 'y': 0.04}
+        on_press:
+            root.manager.current = 'main'
+            root.manager.transition.direction = 'left'
+
+    Button:
+        id: next_button
+        text: '>'
+        font_size: '24sp'
+        color: 0, 0, 0, 1
+        size_hint: (None, None)
+        width: 35
+        height: 35
+        background_normal: ''
+        pos_hint: {'right': 0.95, 'y': 0.04}
+        on_press:
+            root.manager.current = 'third'
+            root.manager.transition.direction = 'right'
+
+#-------------------------------------------------
+<ThirdWindow>:
+    name: 'third'
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: 2
+        spacing: 2
+
+        # Рисунок (слева, 65% ширины)
+        RobotCanvas:
+            id: robot_canvas
+            size_hint_x: 0.75
+            size_hint_y: 0.95
+
+        # Table to the rigth
+        BoxLayout:
+            size_hint_x: 0.25
+            orientation: 'vertical'
+            spacing: 1
+            padding: [2, 2, 2, 2]
+
+            Label:
+                text: 'Results'
+                bold: True
+                font_size: '13sp'
+                color: 1, 1, 1, 1
+                size_hint_y: 0.05
+
+            GridLayout:
+                cols: 2
+                spacing: [1, 1]
+                size_hint_y: 0.7
+
+                # Headlines
+                Label:
+                    text: 'Colors'
+                    bold: True
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+                Label:
+                    text: 'Sizes'
+                    bold: True
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+
+                # Min
+                Label:
+                    text: 'Min'
+                    color: 0, 1, 0, 1
+                    font_size: '10sp'
+
+                Label:
+                    id: t_min
+                    text: '0'
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+
+                # Mid
+                Label:
+                    text: 'Mid'
+                    color: 1, 1, 0, 1
+                    font_size: '10sp'
+
+                Label:
+                    id: t_mid
+                    text: '0'
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+
+                # Max
+                Label:
+                    text: 'Max'
+                    color: 1, 0, 0, 1
+                    font_size: '10sp'
+
+                Label:
+                    id: t_max
+                    text: '0'
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+
+                # Area (Cell)
+                Label:
+                    text: 'Area'
+                    bold: True
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+                Label:
+                    id: t_cell
+                    text: '0'
+                    bold: True
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+                # Radius
+                Label:
+                    text: 'Radius'
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+                Label:
+                    id: t_rad
+                    text: '0'
+                    font_size: '10sp'
+                    color: 1, 1, 1, 1
+
+
+            # Buttons under the table
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: 0.1
+                spacing: 5
+    Button:
+        text: '<'
+        font_size: '24sp'
+        color: 0, 0, 0, 1
+        size_hint: (None, None)
+        width: 35
+        height: 35
+        background_normal: ''
+        pos_hint: {'x': 0.05, 'y': 0.04}
+        on_press:
+            root.manager.current = 'second'
+            root.manager.transition.direction = 'left'
+
+    Button:
+        text: 'Done'
+        font_size: '18sp'
+        color: 0, 0, 0, 1
+        size_hint: (None, None)
+        width: 60
+        height: 35
+        background_normal: ''
+        pos_hint: {'right': 0.95, 'y': 0.04}
+        on_press:
+            root.manager.current = 'main'
+            root.manager.transition.direction = 'right'
+
+
+
+
