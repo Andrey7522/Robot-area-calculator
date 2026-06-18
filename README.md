@@ -1,7 +1,7 @@
 # 🤖 Robot Area Calculator
 
 Application for calculating and visualizing the workspace of industrial robots
-\
+
 ---
 
 <p align="center">
