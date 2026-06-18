@@ -7,6 +7,16 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.widget import Widget
 from kivy.graphics import Color, Ellipse, Line, Rectangle
 from kivy.core.window import Window
+from kivy.clock import Clock
+import sys
+import os
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 # Class for Robot draw-----------------------
 class RobotCanvas(Widget):
@@ -89,7 +99,12 @@ class RobotCanvas(Widget):
 
 # Windows:
 class MainWindow(Screen):
-    pass
+    def on_enter(self):
+        # Откладываем установку картинки, чтобы виджет успел создаться
+        Clock.schedule_once(self.set_image, 0.1)
+
+    def set_image(self, dt):
+        self.ids.main_image.source = resource_path('picture/pxArt.ico')
 
 class SecondWindow(Screen):
     def __init__(self, **kwargs):
@@ -144,3 +159,4 @@ class MyMainApp(App):
 
 if __name__ == '__main__':
     MyMainApp().run()
+
