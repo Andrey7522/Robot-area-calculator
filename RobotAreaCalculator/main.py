@@ -100,7 +100,6 @@ class RobotCanvas(Widget):
 # Windows:
 class MainWindow(Screen):
     def on_enter(self):
-        # Откладываем установку картинки, чтобы виджет успел создаться
         Clock.schedule_once(self.set_image, 0.1)
 
     def set_image(self, dt):
