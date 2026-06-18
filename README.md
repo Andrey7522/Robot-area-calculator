@@ -26,11 +26,11 @@ The project is currently under development and new features are planned for futu
 
 ## 🖼️ Screenshots 
 
-### 🚀 Start screen [(https://github.com/Andrey7522/Robot-area-calculator/blob/master/screenshots/1.png)]
+### 🚀 [Start screen](https://github.com/Andrey7522/Robot-area-calculator/blob/master/screenshots/1.png)
 
-### 📝 Input parameters [(https://github.com/Andrey7522/Robot-area-calculator/blob/master/screenshots/2.png)]
+### 📝 [Input parameters] (https://github.com/Andrey7522/Robot-area-calculator/blob/master/screenshots/2.png)
 
-### 📊 Workspace visualization [(https://github.com/Andrey7522/Robot-area-calculator/blob/master/screenshots/4.png)]
+### 📊 [Workspace visualization] (https://github.com/Andrey7522/Robot-area-calculator/blob/master/screenshots/4.png)
 
 ---
 
