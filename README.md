@@ -5,7 +5,7 @@ Application for calculating and visualizing the workspace of industrial robots
 ---
 
 <p align="center">
-  <img src="screenshots/1.png" alt="Main Screen" width="15%">
+  <img src="screenshots/1.png" alt="Main Screen" width="30%">
 </p>
 
 ## 📖 Overview
@@ -49,7 +49,7 @@ The project is currently under development and new features are planned for futu
 
 
 <p align="center">
-  <img src="demo/Gif.gif" alt="Demonstration of work app" width="75%">
+  <img src="demo/Gif.gif" alt="Demonstration of work app" width="30%">
   <br>
   <em>Animation of the folding mechanism</em>
 </p>
