@@ -51,7 +51,7 @@ The project is currently under development and new features are planned for futu
 <p align="center">
   <img src="demo/Gif.gif" alt="Demonstration of work app" width="30%">
   <br>
-  <em>Animation of the folding mechanism</em>
+  <em> How to use it </em>
 </p>
 
 Using a KUKA robot:
